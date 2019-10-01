@@ -5,6 +5,7 @@ class Api::V1::ProductsController < ApplicationController
     end
 
     def create
+       
         product = Product.create(product_params)
         if product.save
             render json: product
@@ -19,7 +20,7 @@ class Api::V1::ProductsController < ApplicationController
     end
 
     def update
-        product = Proudct.find(params[:id])
+        product = Product.find(params[:id])
         product.update(product_params)
         render json: product
     end
@@ -32,7 +33,7 @@ class Api::V1::ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:name, :size, :price, :type)
+        params.permit(:name, :size, :price, :product_type)
     end
 
 end

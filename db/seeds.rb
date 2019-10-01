@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-forteleza = Product.create(name: 'Forteleza Blanco', size: '750ml', price: '35.55', product_type: "agave")
-limejuice = Product.create(name: 'Lime Juice', size: '32oz', price: '5.00', product_type: "non_alc")
-agavesyrup = Product.create(name: 'Agave syrup', size: '32oz', price: '10.00', product_type: 'non_alc')
+forteleza = Product.create(name: 'Forteleza Blanco', size: '750ml', price: '35.55', product_type: "agave", user_id: 2)
+limejuice = Product.create(name: 'Lime Juice', size: '32oz', price: '5.00', product_type: "non_alc", user_id: 2)
+agavesyrup = Product.create(name: 'Agave syrup', size: '32oz', price: '10.00', product_type: 'non_alc', user_id: 2)
+
+forteleza = Product.create(name: 'Forteleza Rep', size: '750ml', price: '39.55', product_type: "agave", user_id: 1)
+limejuice = Product.create(name: 'Lemon Juice', size: '32oz', price: '5.00', product_type: "non_alc", user_id: 1)
+agavesyrup = Product.create(name: 'Simple syrup', size: '32oz', price: '1.00', product_type: 'non_alc', user_id: 1)
 

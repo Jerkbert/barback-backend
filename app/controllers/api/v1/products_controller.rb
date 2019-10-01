@@ -1,14 +1,21 @@
 class Api::V1::ProductsController < ApplicationController
     before_action :authorized
 
+    # def index
+    #     products = Product.all
+    #     render json: products
+    # end
+
     def index
-        products = Product.all
+        # byebug
+
+        products = current_user.products
         render json: products
     end
 
     def create
        
-        product = Product.create(product_params)
+        product = current_user.products.create(product_params)
         if product.save
             render json: product
         else
@@ -16,10 +23,6 @@ class Api::V1::ProductsController < ApplicationController
         end
     end
 
-    def show
-        product = Product.find(params[:id])
-        render json: product
-    end
 
     def update
         product = Product.find(params[:id])
@@ -35,7 +38,7 @@ class Api::V1::ProductsController < ApplicationController
     private
 
     def product_params
-        params.permit(:name, :size, :price, :product_type)
+        params.require(:product).permit(:name, :size, :price, :product_type)
     end
 
 end

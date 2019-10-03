@@ -1,20 +1,12 @@
 class Api::V1::ProductsController < ApplicationController
     before_action :authorized
 
-    # def index
-    #     products = Product.all
-    #     render json: products
-    # end
-
     def index
-        # byebug
-
         products = current_user.products
         render json: products
     end
 
     def create
-       
         product = current_user.products.create(product_params)
         if product.save
             render json: product
@@ -22,7 +14,6 @@ class Api::V1::ProductsController < ApplicationController
             render json: { message: 'Product failed to save' }
         end
     end
-
 
     def update
         product = Product.find(params[:id])
